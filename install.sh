@@ -28,7 +28,7 @@ if [ -d "$OMZ" ]; then
 		mkdir $OMZ/custom/plugins
 	fi
 
-	echo "\nInstalling ZSH Syntax Highlighting...\n"
+	printf "\nInstalling ZSH Syntax Highlighting...\n\n"
 	rm -rf $OMZ/custom/plugins/zsh-syntax-highlighting
 	git clone git://github.com/zsh-users/zsh-syntax-highlighting.git $OMZ/custom/plugins/zsh-syntax-highlighting
 
@@ -48,9 +48,9 @@ if [ -d "$OMZ" ]; then
 	RUBYPATH=`which ruby`
 	if [ -x "$RUBYPATH" ]; then
 		
-		echo "\nInstalling Open Directory Scanner...\n"
+		printf "\nInstalling Open Directory Scanner...\n\n"
 		rm -rf $HOME/Scripts/opendir
-		git clone https://gist.github.com/3285130.git $HOME/Scripts/opendir
+		git clone git://gist.github.com/3285130.git $HOME/Scripts/opendir
 		
 	else
 		printf "$COLOR - Ruby is not installed $RESET\n"
