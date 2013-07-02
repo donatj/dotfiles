@@ -52,7 +52,7 @@ if [ -d "$OMZ" ]; then
 		git clone https://gist.github.com/3285130.git $HOME/Scripts/opendir
 		
 	else
-		echo "$COLOR - Ruby is not installed $RESET"
+		printf "$COLOR - Ruby is not installed $RESET\n"
 	fi
 
 	PHPPATH=`which php`
@@ -61,10 +61,10 @@ if [ -d "$OMZ" ]; then
 		cp $DOTPATH/Scripts/argsr $HOME/Scripts
 		
 	else
-		echo "$COLOR - PHP is not installed $RESET"
+		printf "$COLOR - PHP is not installed $RESET\n"
 	fi
 
 
 else
-	echo "$COLOR - oh-my-zsh is not installed $RESET"
+	printf "$COLOR - oh-my-zsh is not installed $RESET\n"
 fi
