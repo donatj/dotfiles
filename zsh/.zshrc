@@ -31,7 +31,8 @@ unsetopt correct_all
 
 # Customize to your needs...
 export PATH=/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/git/bin:/usr/X11/bin
-PATH=$PATH:/usr/local/mysql/bin
+export PATH=$PATH:/usr/local/mysql/bin
+export PATH=$PATH:$HOME/Scripts/opendir
 
 # export GOROOT=$HOME/go
 # export GOOS=darwin
