@@ -25,11 +25,24 @@ if [ -d $OMZ ]; then
 		mkdir $OMZ/custom/plugins
 	fi
 
-	echo "Installing ZSH Syntax Highlighting..."
+	echo "\nInstalling ZSH Syntax Highlighting...\n"
 	rm -rf $OMZ/custom/plugins/zsh-syntax-highlighting
 	git clone git://github.com/zsh-users/zsh-syntax-highlighting.git $OMZ/custom/plugins/zsh-syntax-highlighting
 
 	cp $DOTPATH/zsh/.zshrc $HOME
 	cp $DOTPATH/.aliases $HOME
+
+
+	if [ ! -d $HOME/bin ]; then
+		mkdir $HOME/bin
+	fi
+
+	if [ ! -d $HOME/Scripts ]; then
+		mkdir $HOME/Scripts
+	fi
+
+	echo "\nInstalling Open Directory Scanner...\n"
+	rm -rf $HOME/Scripts/opendir
+	git clone https://gist.github.com/3285130.git $HOME/Scripts/opendir
 
 fi;
