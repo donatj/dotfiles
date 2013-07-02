@@ -59,11 +59,6 @@ PATH=$PATH:$HOME/Scripts/opendir
 # Load my Aliases
 source $HOME/.aliases
 
-# PATH=$PATH:/usr/local/share/npm/bin
-
-eval "$(rbenv init -)"
-export RBENV_ROOT=/usr/local/opt/rbenv
-
 # Tell the terminal about the working directory whenever it changes.
 if [[ "$TERM_PROGRAM" == "Apple_Terminal" ]] && [[ -z "$INSIDE_EMACS" ]]; then
 
