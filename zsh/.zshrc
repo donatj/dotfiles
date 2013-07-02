@@ -59,6 +59,17 @@ PATH=$PATH:$HOME/Scripts/opendir
 # Load my Aliases
 source $HOME/.aliases
 
+
+# Load my local zsh_rc
+if [ -f "$HOME/.local.zshrc" ]; then
+    source $HOME/.local.zshrc
+fi
+
+if [ -f "$HOME/.local.aliases" ]; then
+    source $HOME/.local.aliases
+fi
+
+
 # Tell the terminal about the working directory whenever it changes.
 if [[ "$TERM_PROGRAM" == "Apple_Terminal" ]] && [[ -z "$INSIDE_EMACS" ]]; then
 
@@ -95,6 +106,3 @@ if [[ "$TERM_PROGRAM" == "Apple_Terminal" ]] && [[ -z "$INSIDE_EMACS" ]]; then
     # Tell the terminal about the initial directory.
     update_terminal_cwd
 fi
-
-# Load my local zsh_rc
-source $HOME/.local.zshrc
