@@ -34,6 +34,7 @@ if [ -d "$OMZ" ]; then
 
 	cp $DOTPATH/zsh/.zshrc $HOME
 	cp $DOTPATH/.aliases $HOME
+	cp $DOTPATH/.tmux.conf $HOME
 
 
 	if [ ! -d "$HOME/bin" ]; then
