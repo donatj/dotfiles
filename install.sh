@@ -19,6 +19,16 @@ if [ -d $OMZ ]; then
 	fi
 
 	cp $DOTPATH/zsh/jdonat.zsh-theme $OMZ/custom/themes
+
+	if [ ! -d $OMZ/custom/plugins ]; then
+		echo "mkdir custom/plugins"
+		mkdir $OMZ/custom/plugins
+	fi
+
+	echo "Installing ZSH Syntax Highlighting..."
+	rm -rf $OMZ/custom/plugins/zsh-syntax-highlighting
+	git clone git://github.com/zsh-users/zsh-syntax-highlighting.git $OMZ/custom/plugins/zsh-syntax-highlighting
+
 	cp $DOTPATH/zsh/.zshrc $HOME
 	cp $DOTPATH/.aliases $HOME
 
