@@ -113,6 +113,7 @@ if [ -d "$OMZ" ]; then
 		printf "$RED - PHP is not installed $RESET\n"
 	fi
 
+	cp $DOTPATH/Scripts/hostname_color.py $HOME/Scripts
 
 else
 	printf "$RED - oh-my-zsh is not installed $RESET\n"
