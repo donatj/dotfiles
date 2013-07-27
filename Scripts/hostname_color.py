@@ -1,10 +1,11 @@
 #! /usr/bin/env python
 
-from subprocess import check_output
+# from subprocess import check_output
+import subprocess
 import sys, hashlib
 
-colors = check_output(["tput","colors"]).strip()
-hostname = check_output(["hostname", "-s"]).strip()
+colors = subprocess.Popen(['tput', 'colors'], stdout=subprocess.PIPE).communicate()[0].strip()
+hostname = subprocess.Popen(['hostname', '-s'], stdout=subprocess.PIPE).communicate()[0].strip()
 
 m = hashlib.md5()
 m.update(hostname)
