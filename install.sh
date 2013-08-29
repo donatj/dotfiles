@@ -105,7 +105,7 @@ if [ -d "$OMZ" ]; then
 
 		printf "===$PURPL Installing composer                   $RESET===\n"
 
-		curl -sS https://getcomposer.org/installer | php -- --install-dir=$HOME/bin
+		curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin/
 
 		printf "===$GREEN                  Done                 $RESET===\n\n"
 		
