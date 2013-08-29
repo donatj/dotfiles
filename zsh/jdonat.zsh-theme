@@ -4,9 +4,8 @@
 if [ $UID -eq 0 ]; then NCOLOR="red"; else NCOLOR="green"; fi
 local return_code="%(?..%{$fg[red]%}%?↵%{$reset_color%})"
 local time_code="%{%(?.$reset_color.$fg[red])%}%*%{$reset_color%}"
-local hc=`$HOME/Scripts/hostname_color.py`
 
-PROMPT='%{%(?.$fg[$NCOLOR].$fg[red])%}%n%{$fg[green]%}@${hc}%{$reset_color%} %(?..%{$fg[red]%})%~ \
+PROMPT='%{%(?.$fg[$NCOLOR].$fg[red])%}%n%{$fg[green]%}@%m%{$reset_color%} %(?..%{$fg[red]%})%~ \
 $(git_prompt_info)\
 %{$fg[red]%}%(!.#.»)%{$reset_color%} '
 PROMPT2='%{$fg[red]%}\ %{$reset_color%}'
