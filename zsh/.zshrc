@@ -54,6 +54,8 @@ PATH=$PATH:$HOME/pear/bin # Add PEAR to PATH
 
 PATH=$PATH:/usr/local/sbin
 
+PATH=$PATH:$HOME/.composer/vendor/bin
+
 PATH=$PATH:$HOME/Scripts/opendir
 
 # Load my Aliases
