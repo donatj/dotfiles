@@ -72,7 +72,7 @@ if [ -f "$HOME/.local.aliases" ]; then
 fi
 
 # If subl doesn't exist, map it to vim
-which subl > /dev/null
+which subl &> /dev/null
 if [ $? -ne 0 ]; then
     function subl() { /usr/bin/vim "$@" ;}
 fi
