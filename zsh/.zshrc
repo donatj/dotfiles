@@ -71,6 +71,11 @@ if [ -f "$HOME/.local.aliases" ]; then
     source $HOME/.local.aliases
 fi
 
+# If subl doesn't exist, map it to vim
+which subl > /dev/null
+if [ $? -ne 0 ]; then
+    function subl() { /usr/bin/vim "$@" ;}
+fi
 
 # Tell the terminal about the working directory whenever it changes.
 if [[ "$TERM_PROGRAM" == "Apple_Terminal" ]] && [[ -z "$INSIDE_EMACS" ]]; then
