@@ -121,7 +121,7 @@ if [ -d "$OMZ" ]; then
 
 		printf "===$PURPL Installing composer                   $RESET===\n"
 
-		curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin/
+		curl -sS https://getcomposer.org/installer | sudo php -- --install-dir=/usr/local/bin/
 
 		_no_folder_create $OMZ/custom/plugins/composer
 		_mv_file_rm_sym $OMZ/custom/plugins/composer/composer.plugin.zsh;
