@@ -1,5 +1,7 @@
 #!/bin/sh
 
+set -e
+
 _mv_file_rm_sym () {
 	if [ -f $1 ]; then
 		if [ ! -h $1 ]; then
