@@ -35,6 +35,10 @@ cd `dirname $0`
 DOTPATH=`pwd`
 cd $STARTPWD
 
+chsh -s /bin/zsh
+
+curl -L http://install.ohmyz.sh | sh
+
 if [ -d "$OMZ" ]; then
 
 	printf "===$PURPL Installing/Replacing Config Files     $RESET===\n"
@@ -124,6 +128,7 @@ if [ -d "$OMZ" ]; then
 		printf "===$PURPL Installing composer                   $RESET===\n"
 
 		curl -sS https://getcomposer.org/installer | sudo php -- --install-dir=/usr/local/bin/
+		ln -s `which composer.phar` $HOME/Scripts/composer
 
 		_no_folder_create $OMZ/custom/plugins/composer
 		_mv_file_rm_sym $OMZ/custom/plugins/composer/composer.plugin.zsh;
