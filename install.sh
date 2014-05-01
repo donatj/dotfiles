@@ -37,7 +37,7 @@ cd $STARTPWD
 
 chsh -s /bin/zsh
 
-curl -L http://install.ohmyz.sh | sh
+wget --no-check-certificate http://install.ohmyz.sh -O - | sh
 
 if [ -d "$OMZ" ]; then
 
