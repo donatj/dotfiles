@@ -128,6 +128,7 @@ if [ -d "$OMZ" ]; then
 		printf "===$PURPL Installing composer                   $RESET===\n"
 
 		curl -sS https://getcomposer.org/installer | sudo php -- --install-dir=/usr/local/bin/
+		rm -f $HOME/Scripts/composer
 		ln -s `which composer.phar` $HOME/Scripts/composer
 
 		_no_folder_create $OMZ/custom/plugins/composer
