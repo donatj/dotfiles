@@ -77,6 +77,30 @@ if [ $? -ne 0 ]; then
     function subl() { /usr/bin/vim "$@" ;}
 fi
 
+if [[ "$OSTYPE" == darwin* ]]; then
+    # Show man page in Preview.app.
+    # $ manp cd
+    function manp {
+        local page
+        if (( $# > 0 )); then
+            for page in "$@"; do
+                man -t "$page" | open -f -a Preview
+            done
+        else
+            print 'What manual page do you want?' >&2
+        fi
+    }
+
+    # Show current Finder directory.
+    function finder {
+        osascript 2>/dev/null <<EOF
+    tell application "Finder"
+      return POSIX path of (target of window 1 as alias)
+    end tell
+EOF
+}
+fi
+
 # Tell the terminal about the working directory whenever it changes.
 if [[ "$TERM_PROGRAM" == "Apple_Terminal" ]] && [[ -z "$INSIDE_EMACS" ]]; then
 
