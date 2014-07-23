@@ -146,3 +146,13 @@ if [ -d "$OMZ" ]; then
 else
 	printf "$RED - oh-my-zsh is not installed $RESET\n"
 fi
+
+if [[ "$OSTYPE" == darwin* ]]; then
+
+	printf "===$PURPL Running OS X Configuration            $RESET===\n"
+
+	sh $DOTPATH/.osx
+
+	printf "===$GREEN                  Done                 $RESET===\n\n"
+
+fi
