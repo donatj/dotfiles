@@ -32,32 +32,19 @@ setopt NO_BEEP
 
 # Customize to your needs...
 export PATH=/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/git/bin:/usr/X11/bin
-export PATH=$PATH:/usr/local/mysql/bin
 export PATH=$PATH:$HOME/Scripts/opendir
 
-# export GOROOT=$HOME/go
-# export GOOS=darwin
-# export GOARCH=386
-# export GOBIN=$HOME/bin
-# export PATH=$GOBIN:$PATH
-# export PATH=$HOME/Scripts:$PATH
 export GOPATH=$HOME/gocode
-# export GOROOT=$HOME/gocode
 export PATH=$PATH:$GOPATH/bin
-export PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH:$HOME/bin
 export PATH=$PATH:$HOME/Scripts
-export PATH=$PATH:/usr/local/Cellar/smlnj/110.75/libexec/bin
 export MYON=$HOME/Sites/myon
 export CIL=$HOME/Sites/cil
 
-PATH=$PATH:$HOME/pear/bin # Add PEAR to PATH
-
-PATH=$PATH:/usr/local/sbin
-
-PATH=$PATH:$HOME/.composer/vendor/bin
-
-PATH=$PATH:$HOME/Scripts/opendir
+export PATH=$PATH:$HOME/pear/bin # Add PEAR to PATH
+export PATH=$PATH:/usr/local/sbin
+export PATH=$PATH:$HOME/.composer/vendor/bin
+export PATH=$PATH:$HOME/Scripts/opendir
 
 # Load my Aliases
 source $HOME/.aliases
