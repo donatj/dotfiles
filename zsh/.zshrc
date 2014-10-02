@@ -28,6 +28,7 @@ plugins=(git zsh-syntax-highlighting composer brew gem)
 
 source $ZSH/oh-my-zsh.sh
 unsetopt correct_all
+setopt NO_BEEP
 
 # Customize to your needs...
 export PATH=/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/git/bin:/usr/X11/bin
