@@ -1,7 +1,12 @@
 #!/usr/bin/env php
 <?php
 
-$string = $argv[1];
+$string = "";
+
+while( $line = fgets(STDIN) ) {
+	$string .= $line;
+}
+
 $string = strtolower($string);
 $string = str_replace(array( "\r", "\n" ), ' ', $string);
 
