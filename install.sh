@@ -143,6 +143,10 @@ if [ -d "$OMZ" ]; then
 
 	# cp $DOTPATH/Scripts/hostname_color.py $HOME/Scripts
 
+	_mv_file_rm_sym $HOME/.gitignore_global
+	ln -s $DOTPATH/git/.gitignore_global $HOME/.gitignore_global
+	git config --global core.excludesfile $HOME/.gitignore_global
+
 else
 	printf "$RED - oh-my-zsh is not installed $RESET\n"
 fi
