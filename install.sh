@@ -43,6 +43,8 @@ if [ -d "$OMZ" ]; then
 
 	printf "===$PURPL Configuring Git                       $RESET===\n"
 
+	git config --global --replace-all core.excludesfile "$HOME/.gitignore_global"
+
 	git config --global --replace-all alias.dp "diff --patience"
 	git config --global --replace-all alias.cp "cherry-pick"
 	git config --global --replace-all alias.cb "checkout -b"
