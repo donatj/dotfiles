@@ -31,20 +31,14 @@ unsetopt correct_all
 setopt NO_BEEP
 
 # Customize to your needs...
-export PATH=/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/git/bin:/usr/X11/bin
+export PATH=/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/git/bin:/usr/X11/bin:/usr/local/sbin
 export PATH=$PATH:$HOME/Scripts/opendir
 
 export GOPATH=$HOME/gocode
 export PATH=$PATH:$GOPATH/bin
-export PATH=$PATH:$HOME/bin
-export PATH=$PATH:$HOME/Scripts
-export MYON=$HOME/Sites/myon
-export CIL=$HOME/Sites/cil
+export PATH=$PATH:$HOME/bin:$HOME/Scripts
 
-export PATH=$PATH:$HOME/pear/bin # Add PEAR to PATH
-export PATH=$PATH:/usr/local/sbin
-export PATH=$PATH:$HOME/.composer/vendor/bin
-export PATH=$PATH:$HOME/Scripts/opendir
+export PATH=$PATH:$HOME/pear/bin:$HOME/.composer/vendor/bin
 
 # Load my Aliases
 source $HOME/.aliases
