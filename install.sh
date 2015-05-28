@@ -109,6 +109,15 @@ if [ -d "$OMZ" ]; then
 
 	# ------
 
+	printf "===$PURPL Installing Misc Shell Scripts         $RESET===\n"
+
+	rm -rf $HOME/Scripts/cp-branch
+	git clone https://gist.github.com/7ae9246c964189a4c2f9.git cp-branch
+
+	printf "===$GREEN                  Done                 $RESET===\n\n"
+
+	# ------
+
 
 	RUBYPATH=`which ruby`
 	if [ -x "$RUBYPATH" ]; then

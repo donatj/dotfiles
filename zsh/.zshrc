@@ -32,10 +32,10 @@ setopt NO_BEEP
 
 # Customize to your needs...
 export PATH=/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/git/bin:/usr/X11/bin:/usr/local/sbin
-export PATH=$PATH:$HOME/Scripts/opendir
 
 export GOPATH=$HOME/gocode
 export PATH=$PATH:$GOPATH/bin
+export PATH=$PATH:$HOME/Scripts/opendir:$HOME/Scripts/cp-branch
 export PATH=$PATH:$HOME/bin:$HOME/Scripts
 
 export PATH=$PATH:$HOME/pear/bin:$HOME/.composer/vendor/bin
