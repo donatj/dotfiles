@@ -3,6 +3,8 @@
 
 $string = "";
 
+$opt = getopt('r');
+
 while( $line = fgets(STDIN) ) {
 	$string .= $line;
 }
@@ -25,6 +27,10 @@ foreach( $joinparts as $joinpart ) {
 		$ins[]  = trim($equalparts[0]);
 		$outs[] = trim($equalparts[1]);
 	}
+}
+
+if( isset($opt['r']) ) {
+	list($ins, $outs) = [ $outs, $ins ];
 }
 
 $ins_tbl_parts  = explode(".", $ins[0], 2);
