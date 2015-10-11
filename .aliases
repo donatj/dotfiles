@@ -1,1 +1,2 @@
 alias gitpersonal="git config user.email 'donatj@gmail.com'"
+alias reloadzsh=". ~/.zshrc && echo 'ZSH config reloaded from ~/.zshrc'"
