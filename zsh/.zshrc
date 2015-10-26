@@ -38,7 +38,7 @@ export PATH=$PATH:$GOPATH/bin
 export PATH=$PATH:$HOME/Scripts/opendir:$HOME/Scripts/cp-branch
 export PATH=$PATH:$HOME/bin:$HOME/Scripts
 
-export PATH=$PATH:$HOME/pear/bin:$HOME/.composer/vendor/bin
+export PATH=$PATH:$HOME/.composer/vendor/bin:$HOME/pear/bin
 
 # Load my Aliases
 source $HOME/.aliases
