@@ -26,7 +26,7 @@ _no_folder_create() {
 GREEN='\033[01;32m'	#  purpLle
 PURPL='\033[01;35m'	#  purpLle
 RED='\033[01;31m'	#  red
-RESET='\033[00;00m'	# normal white
+RESET='\033[00;00m'	#  normal white
 
 OMZ=$HOME/.oh-my-zsh
 
