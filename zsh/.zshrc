@@ -24,8 +24,8 @@ ZSH_THEME="jdonat"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git zsh-syntax-highlighting composer brew gem)
 
+plugins=(git zsh-syntax-highlighting composer brew gem golang)
 source $ZSH/oh-my-zsh.sh
 unsetopt correct_all
 setopt NO_BEEP
