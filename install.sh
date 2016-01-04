@@ -64,6 +64,9 @@ if [ -d "$OMZ" ]; then
 	_mv_file_rm_sym $HOME/.aliases
 	ln -s $DOTPATH/.aliases $HOME/.aliases
 
+	_mv_file_rm_sym $HOME/.go.crosscompile.zshrc
+	ln -s $DOTPATH/.aliases $HOME/.go.crosscompile.zshrc
+
 	_mv_file_rm_sym $HOME/.tmux.conf;
 	ln -s $DOTPATH/.tmux.conf $HOME/.tmux.conf
 

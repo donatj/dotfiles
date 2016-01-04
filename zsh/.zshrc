@@ -43,6 +43,9 @@ export PATH=$PATH:$HOME/.composer/vendor/bin:$HOME/pear/bin
 # Load my Aliases
 source $HOME/.aliases
 
+if [ -f "$HOME/.go.crosscompile.zshrc" ]; then
+    source $HOME/.go.crosscompile.zshrc
+fi
 
 # Load my local zsh_rc
 if [ -f "$HOME/.local.zshrc" ]; then
