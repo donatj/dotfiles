@@ -23,6 +23,11 @@ _no_folder_create() {
 	fi
 }
 
+_cfg_ln(){
+	_mv_file_rm_sym $2
+	ln -s $1 $2
+}
+
 GREEN='\033[01;32m'	#  purpLle
 PURPL='\033[01;35m'	#  purpLle
 RED='\033[01;31m'	#  red
@@ -58,17 +63,10 @@ if [ -d "$OMZ" ]; then
 
 	printf "===$PURPL Installing/Replacing Config Files     $RESET===\n"
 
-	_mv_file_rm_sym $HOME/.zshrc
-	ln -s $DOTPATH/zsh/.zshrc $HOME/.zshrc
-
-	_mv_file_rm_sym $HOME/.aliases
-	ln -s $DOTPATH/.aliases $HOME/.aliases
-
-	_mv_file_rm_sym $HOME/.go.crosscompile.zshrc
-	ln -s $DOTPATH/.go.crosscompile.zshrc $HOME/.go.crosscompile.zshrc
-
-	_mv_file_rm_sym $HOME/.tmux.conf;
-	ln -s $DOTPATH/.tmux.conf $HOME/.tmux.conf
+	_cfg_ln $DOTPATH/zsh/.zshrc $HOME/.zshrc
+	_cfg_ln $DOTPATH/.aliases $HOME/.aliases
+	_cfg_ln $DOTPATH/.go.crosscompile.zshrc $HOME/.go.crosscompile.zshrc
+	_cfg_ln $DOTPATH/.tmux.conf $HOME/.tmux.conf
 
 	printf "===$GREEN                  Done                 $RESET===\n\n"
 
@@ -92,8 +90,7 @@ if [ -d "$OMZ" ]; then
 	_no_folder_create $OMZ/custom
 	_no_folder_create $OMZ/custom/themes
 
-	_mv_file_rm_sym $OMZ/custom/themes/jdonat.zsh-theme;
-	ln -s $DOTPATH/zsh/jdonat.zsh-theme $OMZ/custom/themes/jdonat.zsh-theme
+	_cfg_ln $DOTPATH/zsh/jdonat.zsh-theme $OMZ/custom/themes/jdonat.zsh-theme
 
 	printf "===$GREEN                  Done                 $RESET===\n\n"
 
@@ -144,8 +141,7 @@ if [ -d "$OMZ" ]; then
 		
 		printf "===$PURPL Installing misc php scripts           $RESET===\n"
 
-		_mv_file_rm_sym $HOME/Scripts/argsr;
-		ln -s $DOTPATH/Scripts/argsr $HOME/Scripts/argsr
+		_cfg_ln $DOTPATH/Scripts/argsr $HOME/Scripts/argsr
 
 		printf "===$GREEN                  Done                 $RESET===\n\n"
 
@@ -159,8 +155,7 @@ if [ -d "$OMZ" ]; then
 		ln -s `which composer.phar` $HOME/Scripts/composer
 
 		_no_folder_create $OMZ/custom/plugins/composer
-		_mv_file_rm_sym $OMZ/custom/plugins/composer/composer.plugin.zsh;
-		ln -s $DOTPATH/zsh/composer/composer.plugin.zsh $OMZ/custom/plugins/composer/composer.plugin.zsh
+		_cfg_ln $DOTPATH/zsh/composer/composer.plugin.zsh $OMZ/custom/plugins/composer/composer.plugin.zsh
 
 		printf "===$GREEN                  Done                 $RESET===\n\n"
 		
@@ -170,8 +165,7 @@ if [ -d "$OMZ" ]; then
 
 	# cp $DOTPATH/Scripts/hostname_color.py $HOME/Scripts
 
-	_mv_file_rm_sym $HOME/.gitignore_global
-	ln -s $DOTPATH/git/.gitignore_global $HOME/.gitignore_global
+	_cfg_ln $DOTPATH/git/.gitignore_global $HOME/.gitignore_global
 	git config --global core.excludesfile $HOME/.gitignore_global
 
 else
