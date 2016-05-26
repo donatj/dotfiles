@@ -30,6 +30,9 @@ source $ZSH/oh-my-zsh.sh
 unsetopt correct_all
 setopt NO_BEEP
 
+# Make composer STFU about XDEBUG
+export COMPOSER_DISABLE_XDEBUG_WARN=1
+
 # Customize to your needs...
 export PATH=/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/git/bin:/usr/X11/bin:/usr/local/sbin
 
