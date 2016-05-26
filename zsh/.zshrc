@@ -26,6 +26,12 @@ ZSH_THEME="jdonat"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 
 plugins=(git zsh-syntax-highlighting composer brew gem golang)
+
+# Load my local zsh_rc
+if [ -f "$HOME/.local.zshrc" ]; then
+    source $HOME/.local.zshrc
+fi
+
 source $ZSH/oh-my-zsh.sh
 unsetopt correct_all
 setopt NO_BEEP
@@ -48,11 +54,6 @@ source $HOME/.aliases
 
 if [ -f "$HOME/.go.crosscompile.zshrc" ]; then
     source $HOME/.go.crosscompile.zshrc
-fi
-
-# Load my local zsh_rc
-if [ -f "$HOME/.local.zshrc" ]; then
-    source $HOME/.local.zshrc
 fi
 
 if [ -f "$HOME/.local.aliases" ]; then
