@@ -28,10 +28,10 @@ _cfg_ln(){
 	ln -s $1 $2
 }
 
-GREEN='\033[01;32m'	#  purpLle
-PURPL='\033[01;35m'	#  purpLle
-RED='\033[01;31m'	#  red
-RESET='\033[00;00m'	#  normal white
+GREEN='\033[01;32m'
+PURPL='\033[01;35m'
+RED='\033[01;31m'
+RESET='\033[00;00m'
 
 OMZ=$HOME/.oh-my-zsh
 
