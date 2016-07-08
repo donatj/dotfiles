@@ -67,6 +67,6 @@ if [ $? -ne 0 ]; then
 fi
 
 if [[ "$OSTYPE" == darwin* ]]; then
-    source .zshrc.darwin
+    source $HOME/.zshrc.darwin
 fi
 
