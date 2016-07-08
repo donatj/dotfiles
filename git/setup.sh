@@ -8,3 +8,6 @@ git config --global --replace-all alias.cplog 'log --oneline --reverse'
 git config --global --replace-all alias.cb "checkout -b"
 git config --global --replace-all alias.personal 'config user.email "donatj@gmail.com"'
 git config --global --replace-all alias.exclude '!f(){ echo $1 >> $(git rev-parse --git-dir)/info/exclude; }; f'
+
+git config --global --replace-all alias.co '!f(){ git fetch origin; git checkout origin/$1; }; f'
+git config --global --replace-all alias.cr '!f(){ git fetch origin; git checkout -b $1 origin/$1; }; f'
