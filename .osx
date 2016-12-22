@@ -74,6 +74,13 @@ defaults write NSGlobalDomain AppleKeyboardUIMode -int 2
 defaults write com.apple.universalaccess closeViewScrollWheelToggle -bool true
 
 
+#==============================================================================
+# App Store
+#==============================================================================
+
+# Show debug menu
+defaults write com.apple.appstore ShowDebugMenu -bool true
+
 
 
 killall Dock
