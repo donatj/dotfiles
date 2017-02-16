@@ -2,6 +2,8 @@
 
 git config --global --replace-all core.excludesfile "$HOME/.gitignore_global"
 
+git config --global gc.auto 0
+
 git config --global --replace-all alias.dp "diff --patience"
 git config --global --replace-all alias.cp "cherry-pick"
 git config --global --replace-all alias.cplog 'log --oneline --reverse'
