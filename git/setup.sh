@@ -10,5 +10,5 @@ git config --global --replace-all alias.personal 'config user.email "donatj@gmai
 git config --global --replace-all alias.exclude '!f(){ echo $1 >> $(git rev-parse --git-dir)/info/exclude; }; f'
 
 git config --global --replace-all alias.co '!f(){ git fetch origin; git checkout origin/$1; }; f'
-git config --global --replace-all alias.cr '!f(){ git fetch origin; git checkout -b $1 origin/$1; }; f'
+git config --global --replace-all alias.cr '!f(){ git fetch origin; git checkout -B review/$1 origin/$1; }; f'
 git config --global --replace-all alias.pr '!f(){ git log --merges --ancestry-path --oneline $1..HEAD | grep "pull request" | tail -n1 | awk "{print \\$5}"; }; f'
