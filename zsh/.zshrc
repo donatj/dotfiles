@@ -70,3 +70,6 @@ if [[ "$OSTYPE" == darwin* ]]; then
     source $HOME/.zshrc.darwin
 fi
 
+if [ -x /usr/libexec/path_helper ]; then
+    eval $(/usr/libexec/path_helper -s)
+fi
