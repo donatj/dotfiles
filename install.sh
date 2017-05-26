@@ -42,6 +42,8 @@ cd "$STARTPWD"
 
 chsh -s /bin/zsh
 
+echo "PATH=\$PATH:$DOTPATH/bin" > "$HOME/.zshrc.dotfiles"
+
 wget --no-check-certificate http://install.ohmyz.sh -O - | sh
 
 if [ -d "$OMZ" ]; then
@@ -134,15 +136,6 @@ if [ -d "$OMZ" ]; then
 
 	PHPPATH=$(which php)
 	if [ -x "$PHPPATH" ]; then
-		
-		printf "===$PURPL Installing misc php scripts           $RESET===\n"
-
-		_cfg_ln $DOTPATH/Scripts/argsr $HOME/Scripts/argsr
-
-		printf "===$GREEN                  Done                 $RESET===\n\n"
-
-
-		# -----
 
 		printf "===$PURPL Installing composer                   $RESET===\n"
 
@@ -158,8 +151,6 @@ if [ -d "$OMZ" ]; then
 	else
 		printf "$RED - PHP is not installed $RESET\n"
 	fi
-
-	# cp $DOTPATH/Scripts/hostname_color.py $HOME/Scripts
 
 	_cfg_ln "$DOTPATH/git/.gitignore_global" "$HOME/.gitignore_global"
 	git config --global core.excludesfile "$HOME/.gitignore_global"

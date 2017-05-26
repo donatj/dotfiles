@@ -27,12 +27,14 @@ ZSH_THEME="jdonat"
 
 plugins=(git zsh-syntax-highlighting composer brew phing gem golang)
 
+source "$HOME/.zshrc.dotfiles"
+
 # Load my local zsh_rc
 if [ -f "$HOME/.local.zshrc" ]; then
-    source $HOME/.local.zshrc
+    source "$HOME/.local.zshrc"
 fi
 
-source $ZSH/oh-my-zsh.sh
+source "$ZSH/oh-my-zsh.sh"
 unsetopt correct_all
 setopt NO_BEEP
 
