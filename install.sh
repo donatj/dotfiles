@@ -51,6 +51,9 @@ if [ -d "$OMZ" ]; then
 	printf "===$PURPL Configuring Git                       $RESET===\n"
 
 	git config --global --replace-all include.path "dotfiles/git/.gitconfig"
+	if [[ "$OSTYPE" == darwin* ]]; then
+		git config --global credential.helper osxkeychain
+	fi
 
 	printf "===$GREEN                  Done                 $RESET===\n\n"
 
