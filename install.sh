@@ -50,7 +50,7 @@ if [ -d "$OMZ" ]; then
 
 	printf "===$PURPL Configuring Git                       $RESET===\n"
 
-	$DOTPATH/git/setup.sh
+	git config --global --replace-all include.path "dotfiles/git/.gitconfig"
 
 	printf "===$GREEN                  Done                 $RESET===\n\n"
 

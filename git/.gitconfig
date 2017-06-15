@@ -1,0 +1,19 @@
+[core]
+	excludesfile = ~/.gitignore_global
+
+[push]
+	default = simple
+
+[gc]
+	auto = 0
+
+[alias]
+	dp = diff --patience
+	cp = cherry-pick
+	cb = checkout -b
+	co = "!f(){ git fetch origin; git checkout origin/$1; }; f"
+	cr = "!f(){ git fetch origin; git checkout -B review/$1 origin/$1; }; f"
+	cplog = log --oneline --reverse
+	exclude = "!f(){ echo $1 >> $(git rev-parse --git-dir)/info/exclude; }; f"
+	personal = config user.email \"donatj@gmail.com\"
+	pr = "!f(){ git log --merges --ancestry-path --oneline $1..HEAD | grep \"pull request\" | tail -n1 | awk \"{print \\\\$5}\"; }; f"
