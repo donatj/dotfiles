@@ -55,6 +55,8 @@ if [ -d "$OMZ" ]; then
 		git config --global credential.helper osxkeychain
 	fi
 
+	_cfg_ln "$DOTPATH/git/.gitignore_global" "$HOME/.gitignore_global"
+
 	printf "===$GREEN                  Done                 $RESET===\n\n"
 
 
@@ -154,9 +156,6 @@ if [ -d "$OMZ" ]; then
 	else
 		printf "$RED - PHP is not installed $RESET\n"
 	fi
-
-	_cfg_ln "$DOTPATH/git/.gitignore_global" "$HOME/.gitignore_global"
-	git config --global core.excludesfile "$HOME/.gitignore_global"
 
 else
 	printf "$RED - oh-my-zsh is not installed $RESET\n"
