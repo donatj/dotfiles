@@ -1,8 +1,15 @@
 [core]
+	autocrlf = input
 	excludesfile = ~/.gitignore_global
 
 [push]
 	default = simple
+
+[difftool]
+	prompt = false
+
+[color]
+	ui = true
 
 [gc]
 	auto = 0
