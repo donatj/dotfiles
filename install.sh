@@ -165,6 +165,7 @@ if [[ "$OSTYPE" == darwin* ]]; then
 
 	printf "===$PURPL Running OS X Configuration            $RESET===\n"
 
+	_cfg_ln "$DOTPATH/LocalDictionary" "$HOME/Library/Spelling/LocalDictionary"
 	sh "$DOTPATH/.osx"
 
 	printf "===$GREEN                  Done                 $RESET===\n\n"
