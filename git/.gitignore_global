@@ -10,3 +10,6 @@ Thumbs.db
 .zedstate
 *.sublime-project
 *.sublime-workspace
+
+# Dumb Crap
+dump.rdb
