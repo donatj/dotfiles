@@ -70,6 +70,7 @@ if [ -d "$OMZ" ]; then
 	_cfg_ln "$DOTPATH/.aliases" "$HOME/.aliases"
 	_cfg_ln "$DOTPATH/.go.crosscompile.zshrc" "$HOME/.go.crosscompile.zshrc"
 	_cfg_ln "$DOTPATH/.tmux.conf" "$HOME/.tmux.conf"
+	_cfg_ln "$DOTPATH/.ttouch" "$HOME/.ttouch"
 
 	printf "===$GREEN                  Done                 $RESET===\n\n"
 
