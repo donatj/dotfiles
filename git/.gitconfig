@@ -24,4 +24,4 @@
 	exclude = "!f(){ echo $1 >> $(git rev-parse --git-dir)/info/exclude; }; f"
 	personal = config user.email \"donatj@gmail.com\"
 	pr = "!f(){ git log --merges --ancestry-path --oneline $1..HEAD | grep \"pull request\" | tail -n1 | awk \"{print \\\\$5}\"; }; f"
-	mrb = "!f(){ git for-each-ref --sort=-committerdate refs/heads/ | egrep -v 'refs/heads/(review/|release/|dev$)' | head -15; };f"
+	mrb = "!f(){ git for-each-ref --sort=-committerdate refs/heads/ | egrep -v 'refs/heads/(review/|release/|dev$)' | head -15 | awk '{print substr($1,0,10) \" \" substr($3,12)}'; };f"
