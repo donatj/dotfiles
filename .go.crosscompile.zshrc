@@ -39,6 +39,10 @@ function go-windows-amd64 {
 	env GOOS=windows GOARCH=amd64 go $@
 }
 
+function go-js-wasm {
+	env GOOS=js GOARCH=wasm go $@
+}
+
 function go-all {
 	go-darwin-386 $@
 	go-darwin-amd64 $@
@@ -50,4 +54,5 @@ function go-all {
 	go-linux-arm $@
 	go-windows-386 $@
 	go-windows-amd64 $@
+	go-js-wasm $@
 }
