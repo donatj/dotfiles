@@ -66,6 +66,7 @@ if [ -d "$OMZ" ]; then
 	printf "===$PURPL Installing/Replacing Config Files     $RESET===\n"
 
 	_cfg_ln "$DOTPATH/zsh/.zshrc" "$HOME/.zshrc"
+	_cfg_ln "$DOTPATH/zsh/.zshenv" "$HOME/.zshenv"
 	_cfg_ln "$DOTPATH/zsh/.zshrc.darwin" "$HOME/.zshrc.darwin"
 	_cfg_ln "$DOTPATH/.aliases" "$HOME/.aliases"
 	_cfg_ln "$DOTPATH/.go.crosscompile.zshrc" "$HOME/.go.crosscompile.zshrc"
