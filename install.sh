@@ -112,33 +112,6 @@ if [ -d "$OMZ" ]; then
 
 	printf "===$GREEN                  Done                 $RESET===\n\n"
 
-
-	# ------
-
-	printf "===$PURPL Installing Misc Shell Scripts         $RESET===\n"
-
-	rm -rf "$HOME/Scripts/cp-branch"
-	git clone https://gist.github.com/7ae9246c964189a4c2f9.git $HOME/Scripts/cp-branch
-
-	printf "===$GREEN                  Done                 $RESET===\n\n"
-
-	# ------
-
-
-	RUBYPATH=$(which ruby)
-	if [ -x "$RUBYPATH" ]; then
-
-		printf "===$PURPL Installing Open Directory Scanner     $RESET===\n"
-
-		rm -rf $HOME/Scripts/opendir
-		git clone git://gist.github.com/3285130.git $HOME/Scripts/opendir
-
-		printf "===$GREEN                  Done                 $RESET===\n\n"
-		
-	else
-		printf "$RED - Ruby is not installed $RESET\n"
-	fi
-
 	# ---
 
 	PHPPATH=$(which php)
