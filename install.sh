@@ -44,7 +44,7 @@ chsh -s /bin/zsh
 
 echo "PATH=\$PATH:$DOTPATH/bin" > "$HOME/.zshrc.dotfiles"
 
-wget --no-check-certificate http://install.ohmyz.sh -O - | sh
+[ ! -d "$OMZ" ] && wget --no-check-certificate http://install.ohmyz.sh -O - | sh
 
 if [ -d "$OMZ" ]; then
 
