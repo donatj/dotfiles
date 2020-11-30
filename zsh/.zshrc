@@ -66,3 +66,6 @@ if [ -x /usr/libexec/path_helper ]; then
     eval $(/usr/libexec/path_helper -s)
 fi
 
+if [ -f "$HOME/.local.paths" ]; then
+    source "$HOME/.local.paths"
+fi
