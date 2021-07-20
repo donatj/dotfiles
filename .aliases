@@ -1,1 +1,2 @@
 alias reloadzsh=". ~/.zshrc && echo 'ZSH config reloaded from ~/.zshrc'"
+alias bcrypt="php -r 'echo password_hash(\$argv[1] ?? die(2),PASSWORD_BCRYPT,[\"cost\"=>14]), PHP_EOL;'"
