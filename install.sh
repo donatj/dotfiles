@@ -108,7 +108,7 @@ if [ -d "$OMZ" ]; then
 	_no_folder_create "$OMZ/custom/plugins"
 
 	rm -rf "$OMZ/custom/plugins/zsh-syntax-highlighting"
-	git clone git://github.com/zsh-users/zsh-syntax-highlighting.git "$OMZ/custom/plugins/zsh-syntax-highlighting"
+	git clone https://github.com/zsh-users/zsh-syntax-highlighting "$OMZ/custom/plugins/zsh-syntax-highlighting"
 
 	printf "===$GREEN                  Done                 $RESET===\n\n"
 
