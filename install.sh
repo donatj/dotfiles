@@ -3,7 +3,7 @@
 set -e
 
 _mv_file_rm_sym () {
-	if [ -f "$1" ]; then
+	if [ -f "$1" ] || [ -d "$1" ]; then
 		if [ ! -h "$1" ]; then
 			echo "Moving old $1 ...";
 			mv "$1" "$1.old.$(date +"%s")"
