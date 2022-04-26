@@ -46,95 +46,97 @@ echo "PATH=\$PATH:$DOTPATH/bin" > "$HOME/.zshrc.dotfiles"
 
 [ ! -d "$OMZ" ] && wget --no-check-certificate http://install.ohmyz.sh -O - | sh
 
-if [ -d "$OMZ" ]; then
+if [ ! -d "$OMZ" ]; then
+	echo -e "${RED}Oh My Zsh is not installed${RESET}"
 
-	printf "===$PURPL Configuring Git                       $RESET===\n"
-
-	git config --global --replace-all include.path "dotfiles/git/.gitconfig"
-	if [[ "$OSTYPE" == darwin* ]]; then
-		git config --global credential.helper osxkeychain
-	fi
-
-	_cfg_ln "$DOTPATH/git/.gitignore_global" "$HOME/.gitignore_global"
-
-	printf "===$GREEN                  Done                 $RESET===\n\n"
-
-
-	# ---
-
-
-	printf "===$PURPL Installing/Replacing Config Files     $RESET===\n"
-
-	_cfg_ln "$DOTPATH/zsh/.zshrc" "$HOME/.zshrc"
-	_cfg_ln "$DOTPATH/zsh/.zshenv" "$HOME/.zshenv"
-	_cfg_ln "$DOTPATH/zsh/.zshrc.darwin" "$HOME/.zshrc.darwin"
-	_cfg_ln "$DOTPATH/.aliases" "$HOME/.aliases"
-	_cfg_ln "$DOTPATH/.go.crosscompile.zshrc" "$HOME/.go.crosscompile.zshrc"
-	_cfg_ln "$DOTPATH/.tmux.conf" "$HOME/.tmux.conf"
-	_cfg_ln "$DOTPATH/.ttouch" "$HOME/.ttouch"
-
-	printf "===$GREEN                  Done                 $RESET===\n\n"
-
-
-	# ---
-
-
-	printf "===$PURPL Creating ~/bin and ~/Scripts          $RESET===\n"
-
-	_no_folder_create "$HOME/bin"
-	_no_folder_create "$HOME/Scripts"
-
-	printf "===$GREEN                  Done                 $RESET===\n\n"
-
-
-	# ------
-
-
-	printf "===$PURPL Installing ZSH Theme                  $RESET===\n"
-
-	_no_folder_create "$OMZ/custom"
-	_no_folder_create "$OMZ/custom/themes"
-
-	_cfg_ln "$DOTPATH/zsh/jdonat.zsh-theme" "$OMZ/custom/themes/jdonat.zsh-theme"
-
-	printf "===$GREEN                  Done                 $RESET===\n\n"
-
-
-	# ------
-
-
-	printf "===$PURPL Installing ZSH Syntax Highlighting    $RESET===\n"
-
-	_no_folder_create "$OMZ/custom/plugins"
-
-	rm -rf "$OMZ/custom/plugins/zsh-syntax-highlighting"
-	git clone https://github.com/zsh-users/zsh-syntax-highlighting "$OMZ/custom/plugins/zsh-syntax-highlighting"
-
-	printf "===$GREEN                  Done                 $RESET===\n\n"
-
-	# ---
-
-	PHPPATH=$(which php)
-	if [ -x "$PHPPATH" ]; then
-
-		printf "===$PURPL Installing composer                   $RESET===\n"
-
-		curl -sS https://getcomposer.org/installer | sudo php -- --install-dir=/usr/local/bin/
-		rm -f $HOME/Scripts/composer
-		ln -s `which composer.phar` $HOME/Scripts/composer
-
-		_no_folder_create $OMZ/custom/plugins/composer
-		_cfg_ln $DOTPATH/zsh/composer/composer.plugin.zsh $OMZ/custom/plugins/composer/composer.plugin.zsh
-
-		printf "===$GREEN                  Done                 $RESET===\n\n"
-		
-	else
-		printf "$RED - PHP is not installed $RESET\n"
-	fi
-
-else
-	printf "$RED - oh-my-zsh is not installed $RESET\n"
+	exit 1
 fi
+
+printf "===$PURPL Configuring Git                       $RESET===\n"
+
+git config --global --replace-all include.path "dotfiles/git/.gitconfig"
+if [[ "$OSTYPE" == darwin* ]]; then
+	git config --global credential.helper osxkeychain
+fi
+
+_cfg_ln "$DOTPATH/git/.gitignore_global" "$HOME/.gitignore_global"
+
+printf "===$GREEN                  Done                 $RESET===\n\n"
+
+
+# ---
+
+
+printf "===$PURPL Installing/Replacing Config Files     $RESET===\n"
+
+_cfg_ln "$DOTPATH/zsh/.zshrc" "$HOME/.zshrc"
+_cfg_ln "$DOTPATH/zsh/.zshenv" "$HOME/.zshenv"
+_cfg_ln "$DOTPATH/zsh/.zshrc.darwin" "$HOME/.zshrc.darwin"
+_cfg_ln "$DOTPATH/.aliases" "$HOME/.aliases"
+_cfg_ln "$DOTPATH/.go.crosscompile.zshrc" "$HOME/.go.crosscompile.zshrc"
+_cfg_ln "$DOTPATH/.tmux.conf" "$HOME/.tmux.conf"
+_cfg_ln "$DOTPATH/.ttouch" "$HOME/.ttouch"
+
+printf "===$GREEN                  Done                 $RESET===\n\n"
+
+
+# ---
+
+
+printf "===$PURPL Creating ~/bin and ~/Scripts          $RESET===\n"
+
+_no_folder_create "$HOME/bin"
+_no_folder_create "$HOME/Scripts"
+
+printf "===$GREEN                  Done                 $RESET===\n\n"
+
+
+# ------
+
+
+printf "===$PURPL Installing ZSH Theme                  $RESET===\n"
+
+_no_folder_create "$OMZ/custom"
+_no_folder_create "$OMZ/custom/themes"
+
+_cfg_ln "$DOTPATH/zsh/jdonat.zsh-theme" "$OMZ/custom/themes/jdonat.zsh-theme"
+
+printf "===$GREEN                  Done                 $RESET===\n\n"
+
+
+# ------
+
+
+printf "===$PURPL Installing ZSH Syntax Highlighting    $RESET===\n"
+
+_no_folder_create "$OMZ/custom/plugins"
+
+rm -rf "$OMZ/custom/plugins/zsh-syntax-highlighting"
+git clone https://github.com/zsh-users/zsh-syntax-highlighting "$OMZ/custom/plugins/zsh-syntax-highlighting"
+
+printf "===$GREEN                  Done                 $RESET===\n\n"
+
+# ---
+
+PHPPATH=$(which php)
+if [ -x "$PHPPATH" ]; then
+
+	printf "===$PURPL Installing composer                   $RESET===\n"
+
+	curl -sS https://getcomposer.org/installer | sudo php -- --install-dir=/usr/local/bin/
+	rm -f $HOME/Scripts/composer
+	ln -s `which composer.phar` $HOME/Scripts/composer
+
+	_no_folder_create $OMZ/custom/plugins/composer
+	_cfg_ln $DOTPATH/zsh/composer/composer.plugin.zsh $OMZ/custom/plugins/composer/composer.plugin.zsh
+
+	printf "===$GREEN                  Done                 $RESET===\n\n"
+	
+else
+	printf "$RED - PHP is not installed $RESET\n"
+fi
+
+
 
 if [[ "$OSTYPE" == darwin* ]]; then
 
