@@ -6,10 +6,11 @@ brew install \
 	ffmpeg \
 	wget \
 	exiftool \
-	brotli \
+	guetzli \
 	deno \
 	tmux \
-	shellcheck
+	shellcheck \
+	jq
 
 brew tap homebrew/cask-fonts
 brew install --cask font-fira-code font-ibm-plex font-jetbrains-mono
