@@ -3,6 +3,7 @@
 set -e
 
 secheader () {
+	echo ""
 	echo "##############################################################################"
 	echo "#"
 	echo "# $1"
@@ -98,6 +99,12 @@ _cfg_ln "$DOTPATH/zsh/jdonat.zsh-theme" "$OMZ/custom/themes/jdonat.zsh-theme"
 
 # ------
 
+secheader "SSH Setup"
+
+_no_folder_create "$HOME/.ssh"
+_cfg_ln "$DOTPATH/ssh/config" "$HOME/.ssh/mobile_config"
+
+# ------
 
 secheader "Installing ZSH Syntax Highlighting"
 

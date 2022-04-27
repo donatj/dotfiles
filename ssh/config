@@ -1,0 +1,23 @@
+Host webserver
+  HostName 45.55.116.36
+  User root
+
+Host noteofapp #et
+  HostName noteof.app
+  User root
+
+Host pocket donatj.homeftp.net #et
+	HostName donatj.homeftp.net
+	User donatj
+
+Host clutch
+	HostName clutch.local
+	User donatj
+
+Host gigantor
+	HostName gigantor.local
+	User donatj
+
+Host centurion
+	HostName centurion.local
+	User donatj
