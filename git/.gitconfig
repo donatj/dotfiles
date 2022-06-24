@@ -26,7 +26,8 @@
 	cp = cherry-pick
 	cb = checkout -b
 	co = "!f(){ git fetch origin; git checkout origin/$1; }; f"
-	cr = "!f(){ git fetch origin; git checkout -B review/$1 origin/$1; }; f"
+	cr = "!f(){ git fetch origin; git checkout -B review/$1 origin/$1; }; f"]
+	rr = "!f(){ git reset --hard $(git rev-parse --abbrev-ref --symbolic-full-name '@{u}'); }; f"
 	cplog = log --oneline --reverse
 	exclude = "!f(){ echo $1 >> $(git rev-parse --git-dir)/info/exclude; }; f"
 	personal = config user.email \"donatj@gmail.com\"
