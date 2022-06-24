@@ -1,3 +1,7 @@
+HOMEBREW_NO_AUTO_UPDATE=1
+alias lock='/System/Library/CoreServices/"Menu Extras"/User.menu/Contents/Resources/CGSession -suspend'
+
+
 # Show man page in Preview.app.
 # $ manp cd
 function manp {
@@ -57,4 +61,3 @@ if [[ "$TERM_PROGRAM" == "Apple_Terminal" ]] && [[ -z "$INSIDE_EMACS" ]]; then
     update_terminal_cwd
 fi
 
-alias lock='/System/Library/CoreServices/"Menu Extras"/User.menu/Contents/Resources/CGSession -suspend'
