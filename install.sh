@@ -52,7 +52,7 @@ cd "$STARTPWD"
 
 chsh -s /bin/zsh
 
-echo "PATH=\$PATH:$DOTPATH/bin" > "$HOME/.zshrc.dotfiles"
+echo "PATH=\$PATH:$DOTPATH/bin" > "$HOME/.dotfiles.zshrc"
 
 [ ! -d "$OMZ" ] && wget --no-check-certificate http://install.ohmyz.sh -O - | sh
 
@@ -72,11 +72,11 @@ secheader "Installing/Replacing Config Files"
 
 _cfg_ln "$DOTPATH/zsh/.zshrc" "$HOME/.zshrc"
 _cfg_ln "$DOTPATH/zsh/.zshenv" "$HOME/.zshenv"
-_cfg_ln "$DOTPATH/zsh/.zshrc.darwin" "$HOME/.zshrc.darwin"
+_cfg_ln "$DOTPATH/zsh/.darwin.zshrc" "$HOME/.darwin.zshrc"
 _cfg_ln "$DOTPATH/.aliases" "$HOME/.aliases"
 _cfg_ln "$DOTPATH/.go.crosscompile.zshrc" "$HOME/.go.crosscompile.zshrc"
 _cfg_ln "$DOTPATH/.tmux.conf" "$HOME/.tmux.conf"
-_cfg_ln "$DOTPATH/.ttouch" "$HOME/.ttouch"
+_cfg_ln "$DOTPATH/ttouch" "$HOME/.ttouch"
 
 # ------
 

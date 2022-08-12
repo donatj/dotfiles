@@ -27,7 +27,7 @@ ZSH_THEME="jdonat"
 
 plugins=(git zsh-syntax-highlighting composer brew phing gem golang docker npm)
 
-source "$HOME/.zshrc.dotfiles"
+source "$HOME/.dotfiles.zshrc"
 
 # Load my local zsh_rc
 if [ -f "$HOME/.local.zshrc" ]; then
@@ -59,7 +59,7 @@ if [ $? -ne 0 ]; then
 fi
 
 if [[ "$OSTYPE" == darwin* ]]; then
-    source $HOME/.zshrc.darwin
+    source $HOME/.darwin.zshrc
 fi
 
 if [ -x /usr/libexec/path_helper ]; then
