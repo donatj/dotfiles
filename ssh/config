@@ -21,3 +21,7 @@ Host gigantor
 Host centurion
 	HostName centurion.local
 	User donatj
+
+Host zaftig
+	HostName zaftig.local
+	User donatj
