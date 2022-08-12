@@ -129,7 +129,7 @@ if [ -x "$(which php)" ]; then
 	_cfg_ln $DOTPATH/zsh/composer/composer.plugin.zsh $OMZ/custom/plugins/composer/composer.plugin.zsh
 
 else
-	warn "php is not installed"
+	warn "php is not installed, skipping section"
 fi
 
 
