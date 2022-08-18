@@ -52,12 +52,6 @@ if [ -f "$HOME/.local.aliases" ]; then
     source $HOME/.local.aliases
 fi
 
-# If subl doesn't exist, map it to vim
-which subl &> /dev/null
-if [ $? -ne 0 ]; then
-    function subl() { /usr/bin/vim "$@" ;}
-fi
-
 if [[ "$OSTYPE" == darwin* ]]; then
     source $HOME/.darwin.zshrc
 fi
@@ -68,4 +62,10 @@ fi
 
 if [ -f "$HOME/.local.paths" ]; then
     source "$HOME/.local.paths"
+fi
+
+# If subl doesn't exist, map it to vim
+which subl &> /dev/null
+if [ $? -ne 0 ]; then
+    function subl() { /usr/bin/vim "$@" ;}
 fi

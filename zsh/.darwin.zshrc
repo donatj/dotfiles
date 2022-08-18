@@ -1,6 +1,6 @@
 export HOMEBREW_NO_AUTO_UPDATE=1
 alias lock='/System/Library/CoreServices/"Menu Extras"/User.menu/Contents/Resources/CGSession -suspend'
-
+PATH="/Applications/Sublime Text.app/Contents/SharedSupport/bin:$PATH"
 
 # Show man page in Preview.app.
 # $ manp cd
