@@ -20,8 +20,10 @@ cask "qlmarkdown"
 
 cask "xquartz"
 
-cask 'vlc'
-cask 'rectangle'
+cask "gpg-suite-no-mail"
+
+cask "vlc"
+cask "rectangle"
 
 cask "font-fira-code"
 cask "font-ibm-plex"
