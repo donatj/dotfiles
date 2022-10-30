@@ -1,4 +1,2 @@
 #!/usr/bin/env php
-<?php
-
-print_r($argv);
+<?php print_r($argv);
