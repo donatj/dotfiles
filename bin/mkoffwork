@@ -1,0 +1,26 @@
+#!/usr/bin/env php
+<?php
+
+date_default_timezone_set('America/Chicago');
+
+$time = time();
+
+$endTime   = strtotime("next saturday");
+$startTime = strtotime("last monday", $endTime);
+
+if( $time < $startTime || $time > $endTime ) {
+	throw new LogicException("bad time range - $time not between $startTime and $endTime");
+}
+
+$ratio  = ($time - $startTime) / ($endTime - $startTime);
+$offset = $ratio * 32 * 60 * 60;
+
+$eightAM = 8 * 60 * 60;
+
+$newTime = strtotime("last saturday", $endTime) + $offset + $eightAM;
+if( $offset > 16 * 60 * 60 ) {
+	$newTime = strtotime("last sunday", $endTime) + $offset - (16 * 60 * 60) + $eightAM;
+}
+
+echo date('D M j G:i:s T Y', $newTime);
+echo "\n";
