@@ -76,6 +76,8 @@ defaults write com.apple.universalaccess closeViewScrollWheelToggle -bool true
 # Always show scrollbars
 defaults write NSGlobalDomain AppleShowScrollBars -string "Always"
 
+# Disable Shake Mouse Get Big
+defaults write .GlobalPreferences CGDisableCursorLocationMagnification -bool YES
 
 #==============================================================================
 # App Store
