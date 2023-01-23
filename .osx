@@ -88,6 +88,9 @@ defaults write .GlobalPreferences CGDisableCursorLocationMagnification -bool YES
 # Disable delay showing "drag" proxy icon on hover
 defaults write -g NSToolbarTitleViewRolloverDelay -float 0
 
+# Small Sidebar
+defaults write .GlobalPreferences NSTableViewDefaultSizeMode -int 1
+
 #==============================================================================
 # App Store
 #==============================================================================
