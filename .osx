@@ -76,6 +76,9 @@ defaults write NSGlobalDomain AppleKeyboardUIMode -int 2
 # Use scroll gesture with the Ctrl (^) modifier key to zoom
 defaults write com.apple.universalaccess closeViewScrollWheelToggle -bool true
 
+# zoom follows mouse as it moves
+defaults write com.apple.universalaccess closeViewPanningMode -int 0
+
 # Always show scrollbars
 defaults write NSGlobalDomain AppleShowScrollBars -string "Always"
 
