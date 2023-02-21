@@ -9,28 +9,26 @@ while( $line = fgets(STDIN) ) {
 	$string .= $line;
 }
 
-$string = strtolower($string);
-$string = str_replace(array( "\r", "\n" ), ' ', $string);
+$string = str_replace([ "\r", "\n" ], ' ', $string);
 
-$joinparts = preg_split('/\s(inner |outer |left | right)?join\s.*?\son\s/', $string);
+$joinParts = preg_split('/\s(inner |outer |left | right)?join\s.*?\son\s/i', $string);
 
-$ins  = array();
-$outs = array();
-array_shift($joinparts);
-foreach( $joinparts as $joinpart ) {
-	$j = explode(" and ", $joinpart);
+$ins  = [];
+$outs = [];
+array_shift($joinParts);
+foreach( $joinParts as $joinPart ) {
+	$j = preg_split('/\sand\s/i', $joinPart, -1, PREG_SPLIT_NO_EMPTY);
 
 	foreach( $j as $k ) {
-		// print_r($k);
-		$equalparts = explode("=", $k, 2);
-		// print_r($equalparts);
-		$ins[]  = trim($equalparts[0]);
-		$outs[] = trim($equalparts[1]);
+		$equalParts = explode("=", $k, 2);
+
+		$ins[]  = trim($equalParts[0]);
+		$outs[] = trim($equalParts[1]);
 	}
 }
 
 if( isset($opt['r']) ) {
-	list($ins, $outs) = [ $outs, $ins ];
+	[ $ins, $outs ] = [ $outs, $ins ];
 }
 
 $ins_tbl_parts  = explode(".", $ins[0], 2);
