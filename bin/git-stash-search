@@ -1,0 +1,10 @@
+#! /bin/bash
+i=0;
+git stash list | while read stash; do
+	git stash show -p --name-only "stash@{$i}" | grep "$1";
+	status=$?;
+	if [ $status -eq 0 ]; then
+		echo "  in $stash";
+	fi
+	((i++))
+done;
