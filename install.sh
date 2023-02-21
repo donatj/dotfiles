@@ -143,7 +143,7 @@ if [[ "$OSTYPE" == darwin* ]]; then
 	if [ -x "$(which brew)" ]; then
 		secheader "Running brew install"
 
-		sh "$DOTPATH/brew.sh"
+		brew bundle --file="$DOTPATH/Brewfile"
 	else
 		warn "brew is not installed"
 	fi
