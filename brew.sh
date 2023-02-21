@@ -14,3 +14,4 @@ brew install \
 
 brew tap homebrew/cask-fonts
 brew install --cask font-fira-code font-ibm-plex font-jetbrains-mono
+brew install --cask gpg-suite-no-mail
