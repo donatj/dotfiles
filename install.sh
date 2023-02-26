@@ -2,7 +2,7 @@
 
 set -e
 
-secheader () {
+secheader() {
 	echo ""
 	echo "##############################################################################"
 	echo "#"
@@ -12,14 +12,14 @@ secheader () {
 	echo ""
 }
 
-warn () {
+warn() {
 	printf "\033[01;31m - %s\033[00;00m\n" "$1"
 }
 
-_mv_file_rm_sym () {
+_mv_file_rm_sym() {
 	if [ -f "$1" ] || [ -d "$1" ]; then
 		if [ ! -h "$1" ]; then
-			echo "Moving old $1 ...";
+			echo "Moving old $1 ..."
 			mv "$1" "$1.old.$(date +"%s")"
 		else
 			echo "Removing old $1 symlink ..."
@@ -37,11 +37,10 @@ _no_folder_create() {
 	fi
 }
 
-_cfg_ln(){
+_cfg_ln() {
 	_mv_file_rm_sym "$2"
 	ln -s "$1" "$2"
 }
-
 
 OMZ=$HOME/.oh-my-zsh
 
@@ -52,7 +51,7 @@ cd "$STARTPWD"
 
 chsh -s /bin/zsh
 
-echo "PATH=\$PATH:$DOTPATH/bin" > "$HOME/.dotfiles.zshrc"
+echo "PATH=\$PATH:$DOTPATH/bin" >"$HOME/.dotfiles.zshrc"
 
 [ ! -d "$OMZ" ] && wget --no-check-certificate http://install.ohmyz.sh -O - | sh
 
@@ -64,7 +63,6 @@ if [[ "$OSTYPE" == darwin* ]]; then
 fi
 
 _cfg_ln "$DOTPATH/git/.gitignore_global" "$HOME/.gitignore_global"
-
 
 # ------
 
@@ -80,7 +78,6 @@ _cfg_ln "$DOTPATH/ttouch" "$HOME/.ttouch"
 
 # ------
 
-
 secheader "Creating ~/bin and ~/Scripts"
 
 _no_folder_create "$HOME/bin"
@@ -88,14 +85,12 @@ _no_folder_create "$HOME/Scripts"
 
 # ------
 
-
 secheader "Installing ZSH Theme"
 
 _no_folder_create "$OMZ/custom"
 _no_folder_create "$OMZ/custom/themes"
 
 _cfg_ln "$DOTPATH/zsh/jdonat.zsh-theme" "$OMZ/custom/themes/jdonat.zsh-theme"
-
 
 # ------
 
@@ -113,9 +108,7 @@ _no_folder_create "$OMZ/custom/plugins"
 rm -rf "$OMZ/custom/plugins/zsh-syntax-highlighting"
 git clone https://github.com/zsh-users/zsh-syntax-highlighting "$OMZ/custom/plugins/zsh-syntax-highlighting"
 
-
 # ------
-
 
 if [ -x "$(which php)" ]; then
 
@@ -131,7 +124,6 @@ if [ -x "$(which php)" ]; then
 else
 	warn "php is not installed, skipping section"
 fi
-
 
 if [[ "$OSTYPE" == darwin* ]]; then
 

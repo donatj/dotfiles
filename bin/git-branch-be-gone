@@ -10,13 +10,11 @@ for B1 in $BRANCHES1; do
 	echo ""
 done
 
-
 BRANCHES=$(git branch -vv | grep -v '\*' | awk '/ gone]/ { print $1}')
 
 for B in $BRANCHES; do
 
-	if <<< "$B" grep -E -q '(prpr|review|release|dependabot)/'
-	then
+	if grep <<<"$B" -E -q '(prpr|review|release|dependabot)/'; then
 		git branch -D "$B"
 	else
 		git branch -d "$B" || echo "Failed to delete $B"
