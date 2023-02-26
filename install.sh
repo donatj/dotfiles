@@ -58,7 +58,7 @@ echo "PATH=\$PATH:$DOTPATH/bin" > "$HOME/.dotfiles.zshrc"
 
 secheader "Configuring Git"
 
-git config --global --replace-all include.path "dotfiles/git/.gitconfig"
+git config --global --replace-all include.path "$DOTPATH/git/.gitconfig"
 if [[ "$OSTYPE" == darwin* ]]; then
 	git config --global credential.helper osxkeychain
 fi
