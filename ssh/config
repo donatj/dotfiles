@@ -2,7 +2,7 @@ Host webserver
 	HostName 45.55.116.36
 	User root
 
-Host noteofapp #et
+Host noteofapp noteof.app #et
 	HostName noteof.app
 	User root
 
