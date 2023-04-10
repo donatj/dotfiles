@@ -13,7 +13,7 @@ if( $time < $startTime || $time > $endTime ) {
 }
 
 $ratio  = ($time - $startTime) / ($endTime - $startTime);
-$offset = $ratio * 32 * 60 * 60;
+$offset = intval($ratio * 32 * 60 * 60);
 
 $eightAM = 8 * 60 * 60;
 
