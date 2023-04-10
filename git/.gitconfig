@@ -34,3 +34,6 @@
 	mrb = "!f(){ git for-each-ref --sort=-committerdate refs/heads/ | egrep -v 'refs/heads/(review/|release/|dev$)' | head -15 | awk '{print substr($1,0,10) \" \" substr($3,12)}'; };f"
 	restash = rebase --autostash
 	whoami = "!f(){ git config user.name; git config user.email; }; f"
+
+[advice]
+	detachedHead = false
