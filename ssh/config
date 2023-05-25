@@ -6,11 +6,15 @@ Host noteofapp noteof.app #et
 	HostName noteof.app
 	User root
 
+Host shielded shielded.dev
+	HostName shielded.dev
+	User root
+
 Host pocket donatj.homeftp.net #et
 	HostName donatj.homeftp.net
 	User donatj
 
-Host clutch
+Host clutch clutch.local
 	HostName clutch.local
 	User donatj
 
@@ -18,10 +22,10 @@ Host gigantor
 	HostName gigantor.local
 	User donatj
 
-Host centurion
+Host centurion centurion.local
 	HostName centurion.local
 	User donatj
 
-Host zaftig
+Host zaftig zaftig.local
 	HostName zaftig.local
 	User donatj
