@@ -11,6 +11,8 @@ brew "tree"
 brew "jq"
 brew "ffmpeg"
 
+cask "qlvideo"
+
 cask "font-fira-code"
 cask "font-ibm-plex"
 cask "font-jetbrains-mono"
