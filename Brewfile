@@ -10,6 +10,7 @@ brew "shellcheck"
 brew "tree"
 brew "jq"
 brew "ffmpeg"
+brew "ghostscript"
 
 cask "qlvideo"
 

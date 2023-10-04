@@ -1,4 +1,5 @@
 export HOMEBREW_NO_AUTO_UPDATE=1
+
 alias lock='/System/Library/CoreServices/"Menu Extras"/User.menu/Contents/Resources/CGSession -suspend'
 PATH="/Applications/Sublime Text.app/Contents/SharedSupport/bin:$PATH"
 
@@ -8,7 +9,7 @@ function manp {
     local page
     if (( $# > 0 )); then
         for page in "$@"; do
-            man -t "$page" | open -f -a Preview
+            man -t "$page" | ps2pdf - | open -f -a Preview
         done
     else
         print 'What manual page do you want?' >&2
