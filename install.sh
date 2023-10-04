@@ -115,11 +115,11 @@ if [ -x "$(which php)" ]; then
 	secheader "Installing composer"
 
 	curl -sS https://getcomposer.org/installer | sudo php -- --install-dir=/usr/local/bin/
-	rm -f $HOME/Scripts/composer
+	rm -f "$HOME/Scripts/composer"
 	ln -s "$(which composer.phar)" "$HOME/Scripts/composer"
 
-	_no_folder_create $OMZ/custom/plugins/composer
-	_cfg_ln $DOTPATH/zsh/composer/composer.plugin.zsh $OMZ/custom/plugins/composer/composer.plugin.zsh
+	_no_folder_create "$OMZ/custom/plugins/composer"
+	_cfg_ln "$DOTPATH/zsh/composer/composer.plugin.zsh" "$OMZ/custom/plugins/composer/composer.plugin.zsh"
 
 else
 	warn "php is not installed, skipping section"
