@@ -13,6 +13,7 @@ brew "ffmpeg"
 brew "ghostscript"
 
 cask "qlvideo"
+cask "qlmarkdown"
 
 cask "font-fira-code"
 cask "font-ibm-plex"
