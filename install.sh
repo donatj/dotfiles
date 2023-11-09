@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-set -e
+set -eu
 
 secheader() {
 	echo ""
@@ -135,7 +135,7 @@ if [[ "$OSTYPE" == darwin* ]]; then
 	if [ -x "$(which brew)" ]; then
 		secheader "Running brew install"
 
-		brew bundle --file="$DOTPATH/Brewfile"
+		brew bundle --no-lock --file="$DOTPATH/Brewfile"
 	else
 		warn "brew is not installed"
 	fi
