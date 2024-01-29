@@ -37,3 +37,6 @@
 
 [advice]
 	detachedHead = false
+
+[init]
+	defaultBranch = dev
