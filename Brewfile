@@ -15,6 +15,9 @@ brew "ghostscript"
 cask "qlvideo"
 cask "qlmarkdown"
 
+cask 'vlc'
+cask 'rectangle'
+
 cask "font-fira-code"
 cask "font-ibm-plex"
 cask "font-jetbrains-mono"
