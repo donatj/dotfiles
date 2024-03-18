@@ -1,10 +1,14 @@
-#! /bin/bash
-i=0;
-git stash list | while read stash; do
-	git stash show -p --name-only "stash@{$i}" | grep "$1";
-	status=$?;
-	if [ $status -eq 0 ]; then
+#!/bin/sh
+
+if [ -z "$1" ]; then
+	echo "Usage: stash-search <pattern>"
+	exit 1
+fi
+
+STASHES=$(git stash list | awk '{line[NR]=$0} END{for (i=NR; i>0; i--) print line[i]}')
+
+echo "$STASHES" | awk -F': ' '{print $1}' | while read -r stash; do
+	if git stash show -p --name-only "$stash" | grep "$1"; then
 		echo "  in $stash";
 	fi
-	((i++))
 done;
