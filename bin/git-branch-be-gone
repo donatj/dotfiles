@@ -4,6 +4,8 @@ set -e
 
 git fetch --all --prune
 
+CURRENT=$(git branch --show-current)
+
 BRANCHES1=$(comm -12 <(git branch -vv | grep -v origin | awk '{print $1}') <(git branch --merged | grep -v '\*' | awk '{print $1}'))
 for B1 in $BRANCHES1; do
 	git branch -d "$B1" || echo "Failed to delete $B"
@@ -16,9 +18,26 @@ for B in $BRANCHES; do
 
 	if grep <<<"$B" -E -q '(prpr|review|release|dependabot)/'; then
 		git branch -D "$B"
+	elif grep <<<"$B" -E -q '^archive/'; then
+		continue
 	else
-		git branch -d "$B" || echo "Failed to delete $B"
-		# branch-rb-delete "$B"
+		if ! git branch -d "$B"; then
+			echo "Failed to delete $B"
+			GITLOG=$(git log -1 --pretty=format:'%h - %s [%an, %cd]' "$B")
+			echo "Last commit: $GITLOG"
+			while true; do
+				read -r -p "What should we do? (a[rchive]/i[gnore]/s[earch]/d[elete]/e[xamine]): " choice
+				case "$choice" in
+				a|A ) git branch -m "$B" "archive/$B"; echo "Moved to archive/$B"; break;;
+				d|D ) git branch -D "$B"; break;;
+				s|S ) gh search prs --web -H "$B" --owner "$(gh repo view --json owner --jq '.owner.login')";;
+				e|E ) git checkout "$B"; exit;;
+				* ) echo "Skipping archiving for $B"; break;;
+				esac
+
+				echo ""
+			done
+		fi
 	fi
 
 	echo ""
