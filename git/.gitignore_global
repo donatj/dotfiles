@@ -14,3 +14,7 @@ Thumbs.db
 
 # Dumb Crap
 dump.rdb
+
+# Environment
+.env
+.envrc
