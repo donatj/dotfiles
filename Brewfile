@@ -1,5 +1,3 @@
-tap "homebrew/cask-fonts"
-
 brew "cowsay"
 brew "exiftool"
 brew "ffmpeg"
