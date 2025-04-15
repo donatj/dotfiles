@@ -1,6 +1,9 @@
 # ask for the administrator password upfront
 sudo -v
 
+if ! cat /Library/Application\ Support/com.apple.TCC/TCC.db >/dev/null 2>&1; then
+  echo "[WARNING] Terminal does not have Full Disk Access. Some settings may not apply. Please enable it in System Settings > Privacy & Security."
+fi
 
 #==============================================================================
 # Finder
