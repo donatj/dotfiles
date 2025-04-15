@@ -135,7 +135,7 @@ if [[ "$OSTYPE" == darwin* ]]; then
 	if [ -x "$(which brew)" ]; then
 		secheader "Running brew install"
 
-		brew bundle --no-lock --file="$DOTPATH/Brewfile"
+		brew bundle --file="$DOTPATH/Brewfile"
 	else
 		warn "brew is not installed"
 	fi
