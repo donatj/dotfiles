@@ -1,19 +1,26 @@
 tap "homebrew/cask-fonts"
 
-brew "htop"
-brew "git"
-brew "wget"
+brew "cowsay"
 brew "exiftool"
-brew "guetzli"
-brew "tmux"
-brew "shellcheck"
-brew "tree"
-brew "jq"
 brew "ffmpeg"
+brew "fortune"
+brew "gh"
 brew "ghostscript"
+brew "git"
+brew "guetzli"
+brew "htop"
+brew "imagemagick"
+brew "jq"
+brew "shellcheck"
+brew "tmux"
+brew "tree"
+brew "trash"
+brew "wget"
 
 cask "qlvideo"
 cask "qlmarkdown"
+
+cask "xquartz"
 
 cask 'vlc'
 cask 'rectangle'
