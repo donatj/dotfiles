@@ -49,7 +49,7 @@ cd "$(dirname "$0")"
 DOTPATH=$(pwd)
 cd "$STARTPWD"
 
-chsh -s /bin/zsh
+sudo chsh -s /bin/zsh "$(whoami)"
 
 echo "PATH=\$PATH:$DOTPATH/bin" >"$HOME/.dotfiles.zshrc"
 
