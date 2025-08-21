@@ -1,0 +1,12 @@
+#!/bin/bash
+
+set -e
+
+if [ "$(git cat-file -t "$1" || true)" == "commit" ]; then
+	open "https://github.com/search?type=pullrequests&q=$1"
+	exit
+fi
+
+blame=$(git blame -w -C -C -C "$1" -L "$2,$2" -p)
+
+open "https://github.com/search?type=pullrequests&q=${blame:0:40}"
