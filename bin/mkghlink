@@ -1,0 +1,22 @@
+#!/bin/bash
+
+set -e
+
+HASH=$(git rev-parse HEAD)
+FILE=$(git ls-tree --full-name --name-only HEAD "$1" | head -1)
+
+
+START=""
+END=""
+
+if [[ "$2" ]]; then
+    START="#L$2"
+
+	if [[ "$3" ]]; then
+	END="-L$3"
+	fi
+fi
+
+ROOT=$(git remote get-url origin | sed 's/.com:/.com\//' | sed 's/git@/https:\/\//' | sed 's/\.git/\//')
+
+echo "$ROOT"blob/"$HASH"/"$FILE""$START$END" | pbcopy
