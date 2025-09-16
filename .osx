@@ -108,6 +108,10 @@ defaults write -g NSToolbarTitleViewRolloverDelay -float 0
 # Small Sidebar
 defaults write .GlobalPreferences NSTableViewDefaultSizeMode -int 1
 
+# Expand save and print panels by default
+defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
+defaults write NSGlobalDomain PMPrintingExpandedStateForPrint -bool true
+
 #==============================================================================
 # App Store
 #==============================================================================
