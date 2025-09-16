@@ -90,6 +90,9 @@ defaults write com.apple.universalaccess closeViewScrollWheelToggle -bool true
 # zoom follows mouse as it moves
 defaults write com.apple.universalaccess closeViewPanningMode -int 0
 
+# Show titlebar icons
+defaults write com.apple.universalaccess showWindowTitlebarIcons -bool true
+
 # Always show scrollbars
 defaults write NSGlobalDomain AppleShowScrollBars -string "Always"
 
