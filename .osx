@@ -119,7 +119,16 @@ defaults write NSGlobalDomain PMPrintingExpandedStateForPrint -bool true
 # Show debug menu
 defaults write com.apple.appstore ShowDebugMenu -bool true
 
+#==============================================================================
+# Keyboard Shortcuts
+#==============================================================================
 
+# Use ⌘ + Enter to send email in Mail.app
+defaults write com.apple.mail NSUserKeyEquivalents -dict-add Send "@\U21a9"
+
+#==============================================================================
+# Kill affected applications
+#==============================================================================
 
 killall Dock
 killall Finder
