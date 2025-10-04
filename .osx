@@ -5,6 +5,9 @@ if ! cat /Library/Application\ Support/com.apple.TCC/TCC.db >/dev/null 2>&1; the
   echo "[WARNING] Terminal does not have Full Disk Access. Some settings may not apply. Please enable it in System Settings > Privacy & Security."
 fi
 
+# Make Library always visible
+chflags nohidden ~/Library
+
 #==============================================================================
 # Finder
 #==============================================================================
@@ -39,6 +42,9 @@ defaults write com.apple.finder FXPreferredViewStyle -string "Nlsv"
 
 # Quick look doesn't allow text selection by default, enable it!
 defaults write com.apple.finder QLEnableTextSelection -bool TRUE
+
+# Set $HOME as the default location for new Finder windows
+defaults write com.apple.finder NewWindowTarget -string 'PfHm'
 
 #==============================================================================
 # Window Manager
@@ -90,6 +96,9 @@ defaults write com.apple.universalaccess closeViewScrollWheelToggle -bool true
 # zoom follows mouse as it moves
 defaults write com.apple.universalaccess closeViewPanningMode -int 0
 
+# Show titlebar icons
+defaults write com.apple.universalaccess showWindowTitlebarIcons -bool true
+
 # Always show scrollbars
 defaults write NSGlobalDomain AppleShowScrollBars -string "Always"
 
@@ -102,6 +111,10 @@ defaults write -g NSToolbarTitleViewRolloverDelay -float 0
 # Small Sidebar
 defaults write .GlobalPreferences NSTableViewDefaultSizeMode -int 1
 
+# Expand save and print panels by default
+defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
+defaults write NSGlobalDomain PMPrintingExpandedStateForPrint -bool true
+
 #==============================================================================
 # App Store
 #==============================================================================
@@ -109,7 +122,16 @@ defaults write .GlobalPreferences NSTableViewDefaultSizeMode -int 1
 # Show debug menu
 defaults write com.apple.appstore ShowDebugMenu -bool true
 
+#==============================================================================
+# Keyboard Shortcuts
+#==============================================================================
 
+# Use ⌘ + Enter to send email in Mail.app
+defaults write com.apple.mail NSUserKeyEquivalents -dict-add Send "@\U21a9"
+
+#==============================================================================
+# Kill affected applications
+#==============================================================================
 
 killall Dock
 killall Finder

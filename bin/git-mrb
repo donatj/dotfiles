@@ -1,0 +1,15 @@
+#!/bin/sh
+
+set -e
+
+limit=15
+if [ $# -gt 0 ] && [ "${1#-}" != "$1" ]; then
+	limit="${1#-}"
+fi
+
+git for-each-ref --sort=-committerdate \
+		--format='%(objectname:short) %(refname:short) %(authoremail) %(committerdate:short) %(if)%(upstream)%(then)[%(upstream:short)] *%(end)' \
+		refs/heads/ \
+	| awk '$2 != "dev" && $2 !~ /^review\// && $2 !~ /^release\//' \
+	| head -n "$limit" \
+	| column -t
