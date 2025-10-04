@@ -31,6 +31,7 @@
 	bmv = branch -m
 	cplog = log --oneline --reverse
 	exclude = "!f(){ echo $1 >> $(git rev-parse --git-dir)/info/exclude; }; f"
+	ignore  = "!f(){ echo $1 >> $(git rev-parse --show-toplevel)/.gitignore; }; f"
 	personal = config user.email \"donatj@gmail.com\"
 	mrb = "!f(){ git for-each-ref --sort=-committerdate refs/heads/ | egrep -v 'refs/heads/(review/|release/|dev$)' | head -15 | awk '{print substr($1,0,10) \" \" substr($3,12)}'; };f"
 	restash = rebase --autostash
