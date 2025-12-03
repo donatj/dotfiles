@@ -1,0 +1,12 @@
+#!/bin/bash
+set -e
+
+token="$1"
+[ -z "$token" ] && read -r token
+
+RESPONSE=$(curl -H "Authorization: Bearer $token" https://api.github.com/user -sSi)
+BODY="${RESPONSE#*$'\r\n\r\n'}"
+
+echo "$RESPONSE" | grep 'x-ratelimit'
+echo "$RESPONSE" | grep 'x-oauth-scopes:'
+echo "$BODY"
