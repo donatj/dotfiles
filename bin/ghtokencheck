@@ -7,6 +7,15 @@ token="$1"
 RESPONSE=$(curl -H "Authorization: Bearer $token" https://api.github.com/user -sSi)
 BODY="${RESPONSE#*$'\r\n\r\n'}"
 
-echo "$RESPONSE" | grep 'x-ratelimit'
+echo "$RESPONSE" | grep 'x-ratelimit' | while read -r line; do
+	if [[ "$line" =~ ^x-ratelimit-reset:\ ([0-9]+) ]]; then
+		ts="${BASH_REMATCH[1]}"
+		local_time="$(date -r "$ts" '+%Y-%m-%d %H:%M:%S %Z')"
+		echo "$line (local: $local_time)"
+	else
+		echo "$line"
+	fi
+done
+
 echo "$RESPONSE" | grep 'x-oauth-scopes:'
 echo "$BODY"
