@@ -1,14 +1,17 @@
 #!/bin/sh
+set -e
 
 if [ -z "$1" ]; then
 	echo "Usage: stash-search <pattern>"
 	exit 1
 fi
 
-STASHES=$(git stash list | awk '{line[NR]=$0} END{for (i=NR; i>0; i--) print line[i]}')
+PATTERN=$1
+STASHES=$(git stash list)
 
 echo "$STASHES" | awk -F': ' '{print $1}' | while read -r stash; do
-	if git stash show -p --name-only "$stash" | grep "$1"; then
-		echo "  in $stash";
+	if git stash show --name-only "$stash" | grep -q -- "$PATTERN"; then
+		echo "  in $stash (files)"
+		git stash show --name-only "$stash" | grep -- "$PATTERN" | sed 's/^/    - /'
 	fi
-done;
+done
