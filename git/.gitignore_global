@@ -18,3 +18,7 @@ dump.rdb
 # Environment
 .env
 .envrc
+
+# Claude junk
+~/.claude/*.local.*
+CLAUDE.local.md
