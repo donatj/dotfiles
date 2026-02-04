@@ -16,7 +16,7 @@ brew "trash"
 brew "wget"
 
 cask "qlvideo"
-cask "qlmarkdown"
+# cask "qlmarkdown" # Disabled due to notarization issues
 
 cask "xquartz"
 
