@@ -14,6 +14,9 @@ brew "tmux"
 brew "tree"
 brew "trash"
 brew "wget"
+brew "xz"
+brew "yq"
+brew "zstd"
 
 cask "qlvideo"
 # cask "qlmarkdown" # Disabled due to notarization issues
