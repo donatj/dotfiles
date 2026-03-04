@@ -28,7 +28,7 @@ ZSH_THEME="jdonat"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
 
-plugins=(git zsh-syntax-highlighting composer brew phing gem golang docker npm)
+plugins=(git zsh-syntax-highlighting composer gem golang docker npm)
 
 source "$HOME/.dotfiles.zshrc"
 
