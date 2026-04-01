@@ -1,3 +1,5 @@
+setopt PROMPT_SUBST
+
 # local color_array=(cyan white yellow magenta black blue red default grey green)
 # hostname | md5 -qr | cut -c1
 
@@ -16,8 +18,7 @@ else
   esac
 fi
 
-PROMPT='${cur_session_type}%{%(?.$fg[$NCOLOR].$fg[red])%}%n%{$reset_color%} > %{$fg[cyan]%}%m%{$reset_color%} %(?..%{$fg[red]%})%~ \
-$(git_prompt_info)
+PROMPT='${cur_session_type}%{%(?.$fg[$NCOLOR].$fg[red])%}%n%{$reset_color%} > %{$fg[cyan]%}%m%{$reset_color%} %(?..%{$fg[red]%})%~ $(git_prompt_info)
 ${time_code} ${return_code} %{$fg[red]%}%(!.#.»)%{$reset_color%} '
 PROMPT2='%{$fg[red]%}\ %{$reset_color%}'
 RPS1=''
@@ -26,4 +27,3 @@ ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg[green]%}±%{$fg[yellow]%}"
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%} "
 ZSH_THEME_GIT_PROMPT_CLEAN=""
 ZSH_THEME_GIT_PROMPT_DIRTY="⚡"
-
