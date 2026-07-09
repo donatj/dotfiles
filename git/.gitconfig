@@ -26,7 +26,6 @@
 	cp = cherry-pick
 	cb = checkout -b
 	co = "!f(){ git fetch origin; git checkout origin/$1; }; f"
-	cr = "!f(){ git fetch origin; git checkout -B review/$1 origin/$1; }; f"
 	rr = "!f(){ git fetch --all; git reset --hard $(git rev-parse --abbrev-ref --symbolic-full-name '@{u}'); }; f"
 	bmv = branch -m
 	cplog = log --oneline --reverse

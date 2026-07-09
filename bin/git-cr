@@ -1,0 +1,25 @@
+#!/bin/sh
+set -e
+
+if [ -z "${1-}" ]; then
+	echo "Usage: git cr <branch>"
+	exit 1
+fi
+
+PLAIN_BRANCH="$1"
+REVIEW_BRANCH="review/$1"
+REMOTE_BRANCH="origin/$1"
+
+git fetch origin
+
+if git show-ref --verify --quiet "refs/heads/$PLAIN_BRANCH" && git merge-base --is-ancestor "$PLAIN_BRANCH" "$REMOTE_BRANCH"; then
+	git checkout "$PLAIN_BRANCH"
+	OLD_HASH=$(git rev-parse HEAD)
+	git pull
+	NEW_HASH=$(git rev-parse HEAD)
+	if [ "$OLD_HASH" != "$NEW_HASH" ]; then
+		echo "Updated from $OLD_HASH to $NEW_HASH"
+	fi
+else
+	git checkout -B "$REVIEW_BRANCH" "$REMOTE_BRANCH"
+fi
