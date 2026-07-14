@@ -8,4 +8,6 @@ export PATH=$PATH:$HOME/bin:$HOME/Scripts
 
 export PATH=$PATH:$HOME/.composer/vendor/bin:$HOME/pear/bin
 
+export PATH=$PATH:$HOME/.local/bin
+
 export GH_PAGER=cat
