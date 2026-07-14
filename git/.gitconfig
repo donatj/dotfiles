@@ -40,3 +40,6 @@
 
 [init]
 	defaultBranch = dev
+
+[pager]
+	branch = false
