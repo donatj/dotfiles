@@ -19,6 +19,9 @@ dump.rdb
 .env
 .envrc
 
+# Local Settings
+settings.local.json
+
 # Claude junk
 ~/.claude/*.local.*
 CLAUDE.local.md
