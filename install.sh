@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 set -eu
+shopt -s nullglob
 
 secheader() {
 	echo ""
@@ -32,8 +33,8 @@ _mv_file_rm_sym() {
 
 _no_folder_create() {
 	if [ ! -d "$1" ]; then
-		echo "mkdir $1 ..."
-		mkdir "$1"
+		echo "mkdir -p $1 ..."
+		mkdir -p "$1"
 	fi
 }
 
@@ -124,6 +125,17 @@ if [ -x "$(which php)" ]; then
 else
 	warn "php is not installed, skipping section"
 fi
+
+secheader "Installing Claude Skills"
+
+_no_folder_create "$HOME/.claude/skills"
+
+for skill in "$DOTPATH"/skills/*/; do
+	skill_name=$(basename "$skill")
+	_cfg_ln "$DOTPATH/skills/$skill_name" "$HOME/.claude/skills/$skill_name"
+done
+
+# ------
 
 if [[ "$OSTYPE" == darwin* ]]; then
 
